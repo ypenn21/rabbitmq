@@ -6,7 +6,7 @@ metadata:
   namespace: test-rabbitmq
 ---
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: rabbitmq
   namespace: test-rabbitmq
@@ -19,7 +19,7 @@ rules:
   verbs: ["create"]
 ---
 kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1 #rbac.authorization.k8s.io/v1beta1
 metadata:
   name: rabbitmq
   namespace: test-rabbitmq
