@@ -2,7 +2,7 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: local-path
-provisioner: rancher.io/local-path
+provisioner: driver.longhorn.io
 volumeBindingMode: WaitForFirstConsumer
 reclaimPolicy: Delete
 
