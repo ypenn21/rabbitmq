@@ -16,7 +16,7 @@ spec:
     #   cpu: 1000m
     #   memory: 2Gi
   rabbitmq:
-          additionalConfig: |
+    additionalConfig: |
                   log.console.level = info
                   channel_max = 700
                   default_user= guest 
