@@ -16,6 +16,12 @@ spec:
     #   cpu: 1000m
     #   memory: 2Gi
   rabbitmq:
+   additionalConfig: |
+                  log.console.level = info
+                  channel_max = 700
+                  default_user= guest 
+                  default_pass = guest
+                  default_user_tags.administrator = true
     additionalPlugins:
       - rabbitmq_top
       - rabbitmq_shovel
