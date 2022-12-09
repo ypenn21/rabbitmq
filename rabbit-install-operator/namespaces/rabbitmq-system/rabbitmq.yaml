@@ -25,6 +25,27 @@ spec:
     additionalPlugins:
       - rabbitmq_top
       - rabbitmq_shovel
+#                   additionalConfig:
+#                     description: Modify to add to the rabbitmq.conf file in addition to default configurations set by the operator. Modifying this property on an existing RabbitmqCluster will trigger a StatefulSet rolling restart and will cause rabbitmq downtime. For more information on this config, see https://www.rabbitmq.com/configure.html#config-file
+#                     maxLength: 2000
+#                     type: string
+#                   additionalPlugins:
+#                     description: 'List of plugins to enable in addition to essential plugins: rabbitmq_management, rabbitmq_prometheus, and rabbitmq_peer_discovery_k8s.'
+#                     items:
+#                       description: A Plugin to enable on the RabbitmqCluster.
+#                       maxLength: 100
+#                       pattern: ^\w+$
+#                       type: string
+#                     maxItems: 100
+#                     type: array
+#                   advancedConfig:
+#                     description: Specify any rabbitmq advanced.config configurations to apply to the cluster. For more information on advanced config, see https://www.rabbitmq.com/configure.html#advanced-config-file
+#                     maxLength: 100000
+#                     type: string
+#                   envConfig:
+#                     description: Modify to add to the rabbitmq-env.conf file. Modifying this property on an existing RabbitmqCluster will trigger a StatefulSet rolling restart and will cause rabbitmq downtime. For more information on env config, see https://www.rabbitmq.com/man/rabbitmq-env.conf.5.html
+#                     maxLength: 100000
+#                     type: string
   persistence:
     storageClassName: standard
     storage: 5Gi
