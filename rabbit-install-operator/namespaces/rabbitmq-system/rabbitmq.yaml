@@ -89,5 +89,5 @@ spec:
 #                     maxLength: 100000
 #                     type: string
   persistence:
-    storageClassName: standard
+    storageClassName: local-path
     storage: 5Gi
