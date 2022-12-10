@@ -21,3 +21,27 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   storageClassName: local-path
   volumeMode: Filesystem
+---
+  apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    name: local-path-02
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 242Gi
+    local:
+      fsType: ext4
+      path: /mnt/anthos-system/pvs/4
+    nodeAffinity:
+      required:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - baremetalvm1
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: local-path
+    volumeMode: Filesystem
