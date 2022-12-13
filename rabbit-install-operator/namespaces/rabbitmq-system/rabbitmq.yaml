@@ -108,31 +108,6 @@ spec:
                       %%             {publish_fields,     []},
                       %%             {publish_properties, [{delivery_mode, 2}]},
                       %%             {reconnect_delay,    2.5}]}
-                    ]},
-
-                    {rabbitmq_auth_backend_ldap, [
-                      %%
-                      %% Authorisation
-                      %% =============
-                      %%
-
-                      %% The LDAP plugin can perform a variety of queries against your
-                      %% LDAP server to determine questions of authorisation. See
-                      %% https://www.rabbitmq.com/ldap.html#authorisation for more
-                      %% information.
-
-                      %% Set the query to use when determining vhost access
-                      %%
-                      %% {vhost_access_query, {in_group,
-                      %%                       "ou=${vhost}-users,ou=vhosts,dc=example,dc=com"}},
-
-                      %% Set the query to use when determining resource (e.g., queue) access
-                      %%
-                      %% {resource_access_query, {constant, true}},
-
-                      %% Set queries to determine which tags a user has
-                      %%
-                      %% {tag_queries, []}
                     ]}
                ].
     additionalPlugins:
