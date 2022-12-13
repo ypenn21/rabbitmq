@@ -67,7 +67,6 @@ spec:
                     ]},
                   ].
     additionalPlugins:
-      - rabbitmq_top
       - rabbitmq_shovel
 #                   additionalConfig:
 #                     description: Modify to add to the rabbitmq.conf file in addition to default configurations set by the operator. Modifying this property on an existing RabbitmqCluster will trigger a StatefulSet rolling restart and will cause rabbitmq downtime. For more information on this config, see https://www.rabbitmq.com/configure.html#config-file
