@@ -38,3 +38,6 @@ sudo apt-get install -y erlang-base \
 
 ## Install rabbitmq-server and its dependencies
 sudo apt-get install rabbitmq-server -y --fix-missing
+# check status of rabbitmq
+systemctl status  rabbitmq-server
+
