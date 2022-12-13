@@ -51,7 +51,7 @@ spec:
                             ]}
                            ]},
 
-                      %  List the destination broker(s) to publish to.
+                      %  List the destination broker(s) to publish to. 10.0.0.10 is a vm with rabbit installed in gce
                           {destinations,
                            [%% A singular version of the 'brokers' element.
                            {broker, "amqp://admin:securepassword@10.0.0.10:5672"},
