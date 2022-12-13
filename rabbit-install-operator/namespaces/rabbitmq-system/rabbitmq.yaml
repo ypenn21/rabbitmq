@@ -23,47 +23,49 @@ spec:
                   default_pass = guest
                   default_user_tags.administrator = true
     advancedConfig: | 
-                {rabbitmq_shovel,
-                  [ {shovels, [ {my_first_shovel,
-                                  [ {source,
-                                      [ {protocol, amqp091},
-                                        {uris, [ "amqp://default:default@host1.domain/my_vhost" ]},
-                                        {declarations, [ {'exchange.declare',
-                                                            [ {exchange, <<"my_fanout">>},
-                                                              {type, <<"fanout">>},
-                                                              durable
+                [
+                  {rabbitmq_shovel,
+                    [ {shovels, [ {my_first_shovel,
+                                    [ {source,
+                                        [ {protocol, amqp091},
+                                          {uris, [ "amqp://default:default@host1.domain/my_vhost" ]},
+                                          {declarations, [ {'exchange.declare',
+                                                              [ {exchange, <<"my_fanout">>},
+                                                                {type, <<"fanout">>},
+                                                                durable
+                                                              ]},
+                                                            {'queue.declare',
+                                                              [{arguments,
+                                                                  [{<<"x-message-ttl">>, long, 60000}]}]},
+                                                            {'queue.bind',
+                                                              [ {exchange, <<"my_fanout">>},
+                                                                {queue,    <<>>}
+                                                              ]}
                                                             ]},
-                                                          {'queue.declare',
-                                                            [{arguments,
-                                                                [{<<"x-message-ttl">>, long, 60000}]}]},
-                                                          {'queue.bind',
-                                                            [ {exchange, <<"my_fanout">>},
-                                                              {queue,    <<>>}
-                                                            ]}
+                                          {queue, <<>>},
+                                          {prefetch_count, 10}
+                                        ]},
+                                      {destination,
+                                        [ {protocol, amqp091},
+                                          {uris, ["amqp://"]},
+                                          {declarations, [ {'exchange.declare',
+                                                              [ {exchange, <<"my_direct">>},
+                                                                {type, <<"direct">>},
+                                                                durable
+                                                              ]}
                                                           ]},
-                                        {queue, <<>>},
-                                        {prefetch_count, 10}
-                                      ]},
-                                    {destination,
-                                      [ {protocol, amqp091},
-                                        {uris, ["amqp://"]},
-                                        {declarations, [ {'exchange.declare',
-                                                            [ {exchange, <<"my_direct">>},
-                                                              {type, <<"direct">>},
-                                                              durable
+                                          {publish_properties, [ {delivery_mode, 2} ]},
+                                          {add_forward_headers, true},
+                                          {publish_fields, [ {exchange, <<"my_direct">>},
+                                                            {routing_key, <<"from_shovel">>}
                                                             ]}
-                                                        ]},
-                                        {publish_properties, [ {delivery_mode, 2} ]},
-                                        {add_forward_headers, true},
-                                        {publish_fields, [ {exchange, <<"my_direct">>},
-                                                          {routing_key, <<"from_shovel">>}
-                                                          ]}
-                                          ]},
-                                    {ack_mode, on_confirm},
-                                    {reconnect_delay, 5}
-                                  ]}
-                              ]}
-                  ]}
+                                            ]},
+                                      {ack_mode, on_confirm},
+                                      {reconnect_delay, 5}
+                                    ]}
+                                ]}
+                    ]},
+                  ].
     additionalPlugins:
       - rabbitmq_top
       - rabbitmq_shovel
