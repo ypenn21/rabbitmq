@@ -8,10 +8,10 @@ spec:
   replicas: 1
   service:
     type: LoadBalancer # ClusterIP | LoadBalancer
-  resources:
-    requests:
+#   resources:
+#     requests:
       # cpu: 3000m
-      memory: 512Mi
+#       memory: 512Mi
     # limits:
     #   cpu: 1000m
     #   memory: 2Gi
@@ -28,7 +28,7 @@ spec:
                     [ {shovels, [ {my_first_shovel,
                                     [ {source,
                                         [ {protocol, amqp091},
-                                          {uris, [ "amqp://default:default@host1.domain/my_vhost" ]},
+                                          {uris, [ "amqp://guest:guest@host1.domain/my_vhost" ]},
                                           {declarations, [ {'exchange.declare',
                                                               [ {exchange, <<"my_fanout">>},
                                                                 {type, <<"fanout">>},
