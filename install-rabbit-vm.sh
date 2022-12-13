@@ -39,5 +39,6 @@ sudo apt-get install -y erlang-base \
 ## Install rabbitmq-server and its dependencies
 sudo apt-get install rabbitmq-server -y --fix-missing
 # check status of rabbitmq
+# https://cloudinfrastructureservices.co.uk/install-rabbitmq-on-ubuntu-server-20-04/
 systemctl status  rabbitmq-server
 
