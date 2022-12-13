@@ -34,7 +34,7 @@ spec:
 
                           {sources,
                            [%% URI(s) and pre-declarations for all source broker(s).
-                           {brokers, ["amqp://guest:guest@localhost:5672"]},
+                           {brokers, ["amqp://guest:guest@rabbitmqcluster:5672"]},
                             {declarations, [
                                 {'exchange.declare',
                                    [ {exchange, <<"shovel_exchange">>},
