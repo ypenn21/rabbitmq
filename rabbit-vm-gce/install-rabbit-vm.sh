@@ -1,5 +1,6 @@
 #!/usr/bin/sh
 
+#  this script is referenced from this website https://www.rabbitmq.com/install-debian.html
 sudo apt-get install curl gnupg apt-transport-https -y
 
 ## Team RabbitMQ's main signing key
