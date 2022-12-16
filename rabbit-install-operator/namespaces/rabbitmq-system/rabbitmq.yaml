@@ -108,10 +108,19 @@ spec:
                       %%             {publish_fields,     []},
                       %%             {publish_properties, [{delivery_mode, 2}]},
                       %%             {reconnect_delay,    2.5}]}
-                    ]}
+                    ]},
+                    
+                    {rabbitmq_watchdog,
+                      [{watchdogs,
+                          [{"Rabbit Watchdog", rabbit_watchdog_rabbit, 5000, [{delay, 1000}]},
+                           {"Shovel Watchdog", rabbit_watchdog_shovel, 5000, [{delay, 1000}]},
+                           {"Management Watchdog", rabbit_watchdog_management, 3600000, []}]},
+                           {"Disk Watchdog", rabbit_watchdog_disk, 3600000, [{rm_dirs, []}]}
+                    ]},
                ].
     additionalPlugins:
       - rabbitmq_shovel
+      - rabbitmq_watchdog
 #                   additionalConfig:
 #                     description: Modify to add to the rabbitmq.conf file in addition to default configurations set by the operator. Modifying this property on an existing RabbitmqCluster will trigger a StatefulSet rolling restart and will cause rabbitmq downtime. For more information on this config, see https://www.rabbitmq.com/configure.html#config-file
 #                     maxLength: 2000
