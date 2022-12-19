@@ -10,14 +10,14 @@ spec:
   local:
     fsType: ext4
     path: /mnt/anthos-system/pvs/4
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - baremetalvm1
+#  nodeAffinity:
+#    required:
+#      nodeSelectorTerms:
+#      - matchExpressions:
+#        - key: kubernetes.io/hostname
+#          operator: In
+#          values:
+#          - baremetalvm1
   persistentVolumeReclaimPolicy: Delete
   storageClassName: local-path
   volumeMode: Filesystem
@@ -34,14 +34,14 @@ spec:
     local:
       fsType: ext4
       path: /mnt/anthos-system/pvs/4
-    nodeAffinity:
-      required:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: kubernetes.io/hostname
-            operator: In
-            values:
-            - baremetalvm1
+#    nodeAffinity:
+#      required:
+#        nodeSelectorTerms:
+#        - matchExpressions:
+#          - key: kubernetes.io/hostname
+#            operator: In
+#            values:
+#            - baremetalvm1
     persistentVolumeReclaimPolicy: Delete
     storageClassName: local-path
     volumeMode: Filesystem
@@ -58,14 +58,14 @@ spec:
     local:
       fsType: ext4
       path: /mnt/anthos-system/pvs/4
-    nodeAffinity:
-      required:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: kubernetes.io/hostname
-            operator: In
-            values:
-            - baremetalvm1
+#    nodeAffinity:
+#      required:
+#        nodeSelectorTerms:
+#        - matchExpressions:
+#          - key: kubernetes.io/hostname
+#            operator: In
+#            values:
+#            - baremetalvm1
     persistentVolumeReclaimPolicy: Delete
     storageClassName: local-path
     volumeMode: Filesystem
