@@ -49,3 +49,11 @@ sudo rabbitmqctl list_permissions -p /
 sudo rabbitmq-plugins enable rabbitmq_shovel
 sudo rabbitmq-plugins enable rabbitmq_management
 ss -tunelp
+
+# run rabbitmq publisher jar in vm
+export USER=admin
+export PASS=securepassword
+export HOST=10.0.0.10
+#rabbitmqcluster.default.svc.cluster.local
+export PORT=5672
+#java -jar rabbitmq.jar --spring.profiles.active=routing,sender,remote
