@@ -41,6 +41,7 @@ sudo apt-get install -y erlang-base \
 sudo apt-get install rabbitmq-server -y --fix-missing
 # check status of rabbitmq
 # https://cloudinfrastructureservices.co.uk/install-rabbitmq-on-ubuntu-server-20-04/
+sleep 3
 sudo systemctl status  rabbitmq-server
 sudo rabbitmqctl add_user admin securepassword
 sudo rabbitmqctl set_user_tags admin administrator
@@ -56,6 +57,11 @@ export PASS=securepassword
 export HOST=10.0.0.10
 #rabbitmqcluster.default.svc.cluster.local
 export PORT=5672
+
+sudo cp ./advanced.config /etc/rabbitmq/advanced.config
+sudo cp ./rabbitmq.conf /etc/rabbitmq/rabbitmq.conf
+sudo systemctl restart rabbitmq-server
+
 #rm -rf ./target
 #git pull
 #./mvnw clean install
