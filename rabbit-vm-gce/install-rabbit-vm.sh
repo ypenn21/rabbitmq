@@ -46,5 +46,6 @@ sudo rabbitmqctl add_user admin securepassword
 sudo rabbitmqctl set_user_tags admin administrator
 sudo rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
 sudo rabbitmqctl list_permissions -p /
-# sudo rabbitmq-plugins enable rabbitmq_management
+sudo rabbitmq-plugins enable rabbitmq_shovel
+sudo rabbitmq-plugins enable rabbitmq_management
 ss -tunelp
