@@ -56,4 +56,7 @@ export PASS=securepassword
 export HOST=10.0.0.10
 #rabbitmqcluster.default.svc.cluster.local
 export PORT=5672
+#rm -rf ./target
+#git pull
+#./mvnw clean install
 #java -jar rabbitmq.jar --spring.profiles.active=routing,sender,remote
