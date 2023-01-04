@@ -5,5 +5,3 @@ metadata:
 provisioner: driver.longhorn.io
 volumeBindingMode: WaitForFirstConsumer
 reclaimPolicy: Delete
-
-
